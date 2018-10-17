@@ -5,25 +5,24 @@
 \title{Extract data from Labkey}
 \usage{
 extract_labkey(rodbc_chan, cultures = NULL, protocols = NULL,
-  annees = NULL)
+  annees = NULL, essais = NULL, na.col = FALSE)
 }
 \arguments{
-\item{rodbc_chan}{channel odbc created by labkey_connect{RLabkey}}
+\item{rodbc_chan}{channel odbc created by labkey_connect{RLabkey}. Connexion à Labkey créée au préalable}
 
-\item{cultures}{a vector of character (length 1 = code culture)}
+\item{cultures}{a vector of character (length 1 = code culture). Un vecteur contenant l'ensemble des codes à 1 lettre labkey correspond aux cultures souhaitées.}
 
-\item{protocols}{a vector of character (length 3 = protocol code)}
+\item{protocols}{a vector of character (length 3 = protocol code). Un vecteur contenant les codes protocoles à 3 lettres Labkey souhaités}
 
-\item{annees}{a vector of years}
+\item{annees}{a vector of years. Un vecteur d'années à 4 chiffre.}
+
+\item{essais}{a vector of character (max length = 11). Un vecteur pouvant contenir des "bouts" de codes essais, donc de 1 à 11 caractères}
+
+\item{na.col}{a logical. FALSE pour ne pas conserver les variables vides, TRUE pour les conserver}
 }
 \value{
 a dataframe
 }
 \description{
 Extract data from Labkey
-}
-\examples{
-lbk <- labkey_connect(login="consult", mdp="cetiom")
-data <- extract_labkey(lbk, cultures=c("T","C"), protocols="VCE", annees=c(2017,2018))
-
 }

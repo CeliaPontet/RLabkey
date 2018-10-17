@@ -4,15 +4,16 @@
 #' @param protocols a vector of character (length 3 = protocol code)
 #' @param annees a vector of years
 #' @param cultures a vector of character (length 1 = code culture)
+#' @param essais a vector of character (max length 11)
 #'
 #' @return a experiment dataframe
 #' @export
-#' @import glue
+#' @importFrom glue glue
 #' @import magrittr
 #' @importFrom RODBC sqlQuery
 #' @examples
 #' lbk <- labkey_connect(login="consult", mdp="cetiom")
-#' experiment <- extract_experiment(lbk, cultures=c("T","C"), protocols="VCE", annees=c(2017,2018), essais=c("VCE31","VCE40"))
+#' experiment <- extract_experiment(lbk, cultures=c("T","C"), protocols="VCE", annees=c(2017,2018))
 #'
 extract_experiment <- function(rodbc_chan, cultures=NULL, protocols=NULL, annees=NULL, essais=NULL){
 

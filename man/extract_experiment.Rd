@@ -15,6 +15,8 @@ extract_experiment(rodbc_chan, cultures = NULL, protocols = NULL,
 \item{protocols}{a vector of character (length 3 = protocol code)}
 
 \item{annees}{a vector of years}
+
+\item{essais}{a vector of character (max length 11)}
 }
 \value{
 a experiment dataframe
@@ -24,6 +26,6 @@ Extract EXPERIMENT table from Labkey
 }
 \examples{
 lbk <- labkey_connect(login="consult", mdp="cetiom")
-experiment <- extract_experiment(lbk, cultures=c("T","C"), protocols="VCE", annees=c(2017,2018), essais=c("VCE31","VCE40"))
+experiment <- extract_experiment(lbk, cultures=c("T","C"), protocols="VCE", annees=c(2017,2018))
 
 }
